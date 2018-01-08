@@ -15,14 +15,16 @@ export class AppComponent {
   CONNECTION_STATE: boolean;
   AUTO_LOGIN: boolean;
   authtoken: string;
+  username: string;
+  password: string;
 
   credentials = (
     {
       appname: 'MICap',
       device: 'debug',
       secret: 'livingcase2',
-      username: '',
-      password: '',
+      username: this.username,
+      password: this.password,
       role: 'RESEARCH'
     }
   );
@@ -31,13 +33,19 @@ export class AppComponent {
 constructor(private http: Http, /*private _router: Router*/) { }
 
 
-  login() {
+  login(uname: string, passw: string) {
+
+    this.username = uname;
+    this.password = passw;
+
     return this.http.post('https://test.midata.coop/v1/auth', this.credentials).map(
       (response) => response.json()).subscribe(
       (data) => console.log(data),
       );
 
   }
+
+
 
 
 
