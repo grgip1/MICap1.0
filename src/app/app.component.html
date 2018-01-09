@@ -9,10 +9,10 @@
     <div id="fields">
       <div id="fields2">
         <div class="inline field">
-          <input  style="margin:10px;" type="text" placeholder="User name" [(ngModel)]="username">
+          <input  style="margin:10px;" type="text" id="user" placeholder="User name" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" value="username">
         </div>
         <div class="inline field">
-          <input style="margin:10px;"  type="password" placeholder="Password" [(ngModel)]="password">
+          <input style="margin:10px;"  type="password" id="passw" placeholder="Password" [(ngModel)]="password"[ngModelOptions]="{standalone: true}" value="password">
         </div>
       </div>
       <button class="ui button" style=" background-color:rgb(37, 155, 245); color:white;" (click)="login(username, password)">Einloggen</button>
