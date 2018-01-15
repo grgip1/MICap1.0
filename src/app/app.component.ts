@@ -29,8 +29,8 @@ export class AppComponent {
   );
 
 
-constructor(private http: Http,
-  //private midataconnection: MidataConnection/*private _router: Router*/) { }
+constructor(private http: Http) { }
+  // private midataconnection: MidataConnection/*private _router: Router*/) { }
 
 setUsername (uname: string) {
   this.username = uname;
@@ -51,7 +51,7 @@ setPassword ( passw: string) {
     // return this.http.post('https://test.midata.coop/v1/auth', this.credentials).map(
     //   (response) => response.json()).subscribe(
     //   (data) => console.log(data),
-    //   );
+      //   );
 
   }
 
