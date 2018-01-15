@@ -1,3 +1,23 @@
-<p>
-  home works!
-</p>
+<body id="body">
+
+    <div id="body">
+      <img alt="Logo von MICap" src="assets\images\logo-micap.png">
+      <h2>Willkommen bei MICap home</h2>
+    </div>
+
+    <form class="ui fluid form">
+      <div id="fields">
+        <div id="fields2">
+          <div class="inline field">
+            <input  style="margin:10px;" type="text" id="user" placeholder="User name" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" value="username">
+          </div>
+          <div class="inline field">
+            <input style="margin:10px;"  type="password" id="passw" placeholder="Password" [(ngModel)]="password"[ngModelOptions]="{standalone: true}" value="password">
+          </div>
+        </div>
+        <button class="ui button" style=" background-color:rgb(37, 155, 245); color:white;" (click)="login(username, password)">Einloggen</button>
+      </div>
+    </form>
+
+  </body>
+
