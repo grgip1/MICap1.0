@@ -1,4 +1,5 @@
 import { MidataConnection } from './../../services/MidataConnection';
+import { Bundle, fromFhir, Resource } from 'Midata';
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Authent2} from './authent2';
@@ -15,14 +16,11 @@ export class HomeComponent implements OnInit {
 
   bundle: JSON;
 
-
-
   constructor(private midata: MidataConnection, private http: Http) {
   }
 
   login(uname, pword) {
     this.midata.login(uname, pword);
-    // this.http.get('http://localhost/dashboard/micap/micap.connection.php').subscribe((data) => console.log(data._body), );
   }
 
   selectFile() {
@@ -33,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   data = (
     {
-      midatastudy_id: 'qwer',
+      midatastudy_id: 'qwertzuiop',
       id1: '45',
       effectivedatetime1: '19.05.2028',
       trynb: '1',
@@ -47,18 +45,15 @@ export class HomeComponent implements OnInit {
   );
 
   pushRedcap() {
-    this.http.get('http://localhost/dashboard/micap/REDCap_Test.php');
+    this.http.post('http://localhost/dashboard/micap/REDCap_Test2.php', this.data).subscribe((data) => console.log(data));
   }
-
-
-
 
 
   ngOnInit() {
 
+    var myResources: Resource[] = [];
+    var size = 0;
     var json;
-
-    var bundle: JSON;
 
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
@@ -73,14 +68,25 @@ export class HomeComponent implements OnInit {
         // Closure to capture the file information.
         reader.onload = (function (theFile) {
           return function (e) {
-            console.log('e readAsText = ', e);
-            console.log('e readAsText target = ', e.target.result);
-            bundle = e;
             try {
-
               json = JSON.parse(e.target.result);
-              this.
-                alert('json global var has been set to parsed json of this file here it is unevaled = \n' + JSON.stringify(json));
+              console.log(json);
+
+              for (const entry of json.entry){
+                console.log(myResources);
+                console.log(size);
+                myResources[size] = fromFhir(entry.resource);
+                console.log(myResources[size]);
+                size++;
+              }
+
+              for (const entry of myResources){
+                console.log(fromFhir(entry).getProperty('display'));
+                // console.log(size);
+                // myResources[size] = fromFhir(entry.resource);
+                // console.log(myResources[size]);
+                // size++;
+              }
             } catch (ex) {
               alert('ex when trying to parse json = ' + ex);
             }
@@ -88,10 +94,6 @@ export class HomeComponent implements OnInit {
         })(f);
         reader.readAsText(f);
       }
-
     }
-    this.midata.createfhir(bundle);
-    document.getElementById('files').addEventListener('change', handleFileSelect, false);
-
   }
 }
