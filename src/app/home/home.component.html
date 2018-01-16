@@ -1,6 +1,8 @@
 <html>
 <body id="body" ng-app="myapp">
 
+  <h1>Bitte Datei auswählen</h1>
+
     <!-- <div id="body">
       <img alt="Logo von MICap" src="assets\images\logo-micap.png">
       <h2>Willkommen bei MICap home</h2>
@@ -44,10 +46,15 @@
       </div> -->
     <!-- </form> -->
 
+    <input type="file" id="files" name="files[]" multiple />
+
+    <br>
+    <br>
+
     <div>
     <button (click)="pushRedcap()">push to redcap</button>
   </div>
-    <input type="file" id="files" name="files[]" multiple />
+
 
 
 

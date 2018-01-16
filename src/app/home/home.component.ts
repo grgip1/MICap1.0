@@ -23,24 +23,18 @@ export class HomeComponent implements OnInit {
     this.midata.login(uname, pword);
   }
 
-  selectFile() {
-
-    document.getElementById('files')
-
-  }
-
   data = (
     {
-      midatastudy_id: 'qwertzuiop',
-      id1: '45',
-      effectivedatetime1: '19.05.2028',
+      midatastudy_id: 'livedemo',
+      id1: '1',
+      effectivedatetime1: '16.01.2018',
       trynb: '1',
       nbinvertedconnections: '1',
-      nberrors: '25648',
-      nbcorrections: '548',
-      score: '6699',
-      nbcorrecttries: '0',
-      duration1: '45678'
+      nberrors: '0',
+      nbcorrections: '0',
+      score: '100',
+      nbcorrecttries: '1',
+      duration1: '30'
     }
   );
 
