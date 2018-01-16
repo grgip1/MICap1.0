@@ -79,14 +79,6 @@ export class HomeComponent implements OnInit {
                 console.log(myResources[size]);
                 size++;
               }
-
-              for (const entry of myResources){
-                console.log(fromFhir(entry).getProperty('display'));
-                // console.log(size);
-                // myResources[size] = fromFhir(entry.resource);
-                // console.log(myResources[size]);
-                // size++;
-              }
             } catch (ex) {
               alert('ex when trying to parse json = ' + ex);
             }
