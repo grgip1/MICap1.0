@@ -5,7 +5,7 @@
 </head>
 <body id="body" ng-app="myapp">
 
-    <div id="body">
+    <!-- <div id="body">
       <img alt="Logo von MICap" src="assets\images\logo-micap.png">
       <h2>Willkommen bei MICap home</h2>
     </div>
@@ -21,7 +21,7 @@
           </div>
         </div>
         <button class="ui button" style=" background-color:rgb(37, 155, 245); color:white;" (click)="login(username, password)">Einloggen</button>
-      </div>
+      </div> -->
 
       <!-- <div ng-controller="micapcontroller">
           <table >
@@ -46,7 +46,11 @@
               </tr>
               </table>
       </div> -->
-    </form>
+    <!-- </form> -->
+
+    <input type="file" id="files" name="files[]" multiple />
+
+    <button (click)="pushRedcap()">push to redcap</button>
 
   </body>
 </html>
