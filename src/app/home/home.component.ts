@@ -2,7 +2,7 @@ import { MidataConnection } from './../../services/MidataConnection';
 import { Bundle, fromFhir, Resource } from 'Midata';
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Authent2} from './authent2';
+//import { Codes } from './codes';
 
 @Component({
   selector: 'app-home',
@@ -26,20 +26,30 @@ export class HomeComponent implements OnInit {
   data = (
     {
       midatastudy_id: 'livedemo',
-      id1: '1',
-      effectivedatetime1: '16.01.2018',
+      id: '1',
+      effectivedatetime: '16.01.2018',
       trynb: '1',
       nbinvertedconnections: '1',
       nberrors: '0',
       nbcorrections: '0',
       score: '100',
       nbcorrecttries: '1',
-      duration1: '30'
+      duration: '30',
+      hand: '1',
+      points: '23',
+      line: '1',
+      avgdist: '432',
+      stddevdist: '234',
+      clickfrequencypartresults: '44',
+      nbincorrectpartresults: '2',
+      nbcorrectpartresults: '9',
+      nbtotalincorrect: '4',
+      nbtotalcorrect: '5'
     }
   );
 
   pushRedcap() {
-    this.http.post('http://localhost/dashboard/micap/REDCap_Test2.php', this.data).subscribe((data) => console.log(data));
+    this.http.post('http://localhost/dashboard/micap/redcap.digitsymb.php', this.data).subscribe((data) => console.log(data));
   }
 
 

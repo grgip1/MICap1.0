@@ -1,62 +1,26 @@
 <html>
+
 <body id="body" ng-app="myapp">
 
   <h1>Bitte Datei auswählen</h1>
+  <input type="file" id="files" name="files[]" multiple />
 
-    <!-- <div id="body">
-      <img alt="Logo von MICap" src="assets\images\logo-micap.png">
-      <h2>Willkommen bei MICap home</h2>
-    </div>
+  <br>
+  <br>
 
-    <form class="ui fluid form">
-      <div id="fields">
-        <div id="fields2">
-          <div class="inline field">
-            <input  style="margin:10px;" type="text" id="user" placeholder="User name" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" value="username">
-          </div>
-          <div class="inline field">
-            <input style="margin:10px;"  type="password" id="passw" placeholder="Password" [(ngModel)]="password"[ngModelOptions]="{standalone: true}" value="password">
-          </div>
-        </div>
-        <button class="ui button" style=" background-color:rgb(37, 155, 245); color:white;" (click)="login(username, password)">Einloggen</button>
-      </div> -->
+  <div>
+    <input style="margin:10px;" type="text" id="api" placeholder="API-Token" [(ngModel)]="api" [ngModelOptions]="{standalone: true}"
+      value="api">
+    <label>API-Token eingeben</label>
+  </div>
 
-      <!-- <div ng-controller="micapcontroller">
-          <table >
+  <br>
+  <br>
 
-              <tr>
-              <th>MIDATA ID</th>
-              <th>Redcapid</th>
-              <th>lab</th>
-              <th>point</th>
-              <th>line</th>
-              <th>ligi</th>
-              </tr>
-
-              <!-- Display records
-              <tr ng-repeat="instrument in instruments">
-              <td>{{instrument.mStudyID}}</td>
-              <td>{{instrument.rStudyID}}</td>
-              <td>{{instrument.labyrinth}}</td>
-              <td>{{instrument.motPiont}}</td>
-              <td>{{instrument.motLine}}</td>
-              <td>{{instrument.symbDigi}}</td>
-              </tr>
-              </table>
-      </div> -->
-    <!-- </form> -->
-
-    <input type="file" id="files" name="files[]" multiple />
-
-    <br>
-    <br>
-
-    <div>
+  <div>
     <button (click)="pushRedcap()">push to redcap</button>
   </div>
 
+</body>
 
-
-
-  </body>
 </html>
