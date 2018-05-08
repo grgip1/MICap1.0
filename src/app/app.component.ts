@@ -2,7 +2,6 @@ import { MidataConnection } from './../services/MidataConnection';
 import { Http, Response } from '@angular/http';
 import { Component } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { Authent } from './authent';
 
 @Component({
   selector: 'app-root',
